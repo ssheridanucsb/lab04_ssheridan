@@ -1,6 +1,6 @@
 // intbst.cpp
 // Implements class IntBST
-// YOUR NAME(S), DATE
+// Samuel Sheridan August 23, 2019
 
 #include "intbst.h"
 
@@ -97,6 +97,9 @@ int IntBST::sum() const {
 
 // recursive helper for sum
 int IntBST::sum(Node *n) const {
+  if(n){
+    return n->info + sum(n->right) + sum(n->left);
+  }
     return 0; // REPLACE THIS NON-SOLUTION
 }
 
@@ -107,6 +110,9 @@ int IntBST::count() const {
 
 // recursive helper for count
 int IntBST::count(Node *n) const {
+  if(n){
+    return 1 + count(n->right) + count(n->left);
+  }
     return 0; // REPLACE THIS NON-SOLUTION
 }
 
@@ -117,6 +123,15 @@ int IntBST::count(Node *n) const {
 // Whenever you call this method from somewhere else, pass it
 // the root node as "n"
 IntBST::Node* IntBST::getNodeFor(int value, Node* n) const{
+    if(n){
+      if(n->info == value){
+        return n;
+      }
+    }
+
+    Node* left = getNodeFor(value, n->left);
+    Node* right = getNodeFor(value, n->right);
+
     return NULL; // REPLACE THIS NON-SOLUTION
 }
 
