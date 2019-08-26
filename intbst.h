@@ -23,6 +23,7 @@ class IntBST {
     int sum() const;                 // sum of all values
     int count() const;               // count of values
     bool contains(int value) const;  // true if value is in tree
+    
 
     // THESE ARE HARDER! DO THESE LAST
     int getPredecessor(int value) const;       // returns the predecessor value of the given value or 0 if there is none
@@ -33,7 +34,7 @@ class IntBST {
 
     struct Node {
 	int info;
-	Node *left, *right, * parent;
+	Node *left, *right, *parent;
 	// useful constructor:
     Node(int v=0) : info(v), left(0), right(0), parent(0) { }
     };
@@ -53,7 +54,7 @@ class IntBST {
 
     // these should be used by getPredecessor and getSuccessor, and ONE of them should be used by remove
     Node* getSuccessorNode(int value) const;   // returns the Node containing the successor of the given value
-    Node* getPredecessorNode(int value) const; // returns the Node containing the predecessor of the given value 
+    Node* getPredecessorNode(int value) const; // returns the Node containing the predecessor of the given value
 };
 
 #endif
