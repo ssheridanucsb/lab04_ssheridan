@@ -67,7 +67,7 @@ void IntBST::printPreOrder() const {
 // recursive helper for printPreOrder()
 void IntBST::printPreOrder(Node *n) const {
     if (n) {
-	cout << n->info << " ";
+	cout << n->info << ' ';
 	printPreOrder(n->left);
 	printPreOrder(n->right);
     }
@@ -78,7 +78,11 @@ void IntBST::printInOrder() const {
     printInOrder(root);
 }
 void IntBST::printInOrder(Node *n) const {
-    // IMPLEMENT HERE
+    if(!n) return;
+    printInOrder(n->left);
+    cout << n->info << ' ';
+    printInOrder(n->right);
+    return;
 }
 
 // prints tree data post-order, with helper
@@ -87,7 +91,11 @@ void IntBST::printPostOrder() const {
 }
 
 void IntBST::printPostOrder(Node *n) const {
-    // IMPLEMENT HERE
+    if(!n) return;
+    printPostOrder(n->left);
+    printPostOrder(n->right);
+    cout << n->info << ' ';
+    return;
 }
 
 // return sum of values in tree
