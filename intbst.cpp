@@ -230,49 +230,59 @@ int IntBST::getSuccessor(int value) const{
 // returns true if the node exist and was deleted or false if the node does not exist
 bool IntBST::remove(int value){
     if(!contains(value)) return false;
-
-    if(root->info==value){
-      int s = getSuccessor(value);
-      root->info = s;
-      remove(s, root->right);
-      return true;
-    }
     remove(value, root);
     return true;
 }
 
 IntBST::Node* IntBST::remove(int value, Node* p){
+  if(!p) return 0;
+  //search for the node
   Node* n = getNodeFor(value, p);
-  if(n==0) return 0;
 
-  if(n->left==0 && n->right==0){
+  //if the node is a leaf delete the leaf
+  if(n->right==0 && n->left==0){
+    //if its the right child;
     if(n->parent->right==n){
       n->parent->right=0;
     }
+    //if its the left child
     else{
       n->parent->left=0;
     }
     delete n;
     return 0;
+
   }
-  else if(!n->right || !n->left){
-    if(n->left){
-        n->left->parent = n->parent;
+  //if the node has 1 child bypass the child
+  else if(n->right==0 || n->left==0){
+    //if no right child
+    if(n->right==0){
+      if(n->parent->info > value){
         n->parent->left = n->left;
       }
       else{
-        n->right->parent = n->parent;
-        n->parent->right = n->right;
+        n->parent->right = n->left;
       }
-      delete n;
-      return 0;
     }
+    //if no left child
+    else{
+      if(n->parent->info > value){
+        n->parent->left = n->right;
+        }
+      else{
+        n->parent->right = n->right;
+        }
+      }
+
+  
+    delete n;
+    return 0;
+  }
+  //if the node has 2 children replace with its successor
   else{
-      Node* n = getSuccessorNode(value);
-      int tmp = p->info;
-      p->info = n->info;
-      n->info = tmp;
-      remove(value, n->right);
+    int s = getSuccessor(value);
+    n->info = s;
+    remove(s, n->right);
   }
 
-  }
+}
