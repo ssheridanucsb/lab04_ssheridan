@@ -61,7 +61,7 @@ int main(){
   cout <<  "successor to 1: " << testTree.getSuccessor(1) << endl;
 
   //remove root test;
-  cout << "Removing the root i.e. 5" << endl;
+  cout << "Removing the root 5" << endl;
   testTree.remove(5);
   cout << "new pre order: ";
   testTree.printPreOrder();
@@ -74,10 +74,10 @@ int main(){
   cout << endl;
 
   //remove a node with two children
-  cout << "Removing a node with two children i.e 9" << endl;
-  testTree.remove(9);
-  testTree.printPreOrder();
-  cout<<endl;
+  //cout << "Removing a node with two children i.e 9" << endl;
+  //testTree.remove(9);
+  //testTree.printPreOrder();
+  //cout<<endl;
 
 
 

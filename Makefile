@@ -2,7 +2,7 @@ test_intbst: test_intbst.o intbst.o
 	g++ test_intbst.o intbst.o -o test_intbst
 
 test_intbst.o: test_intbst.cpp
-	g++ test_intbst.cpp -c
+	g++ test_intbst.cpp -c -g
 
 intbst.o: intbst.cpp intbst.h
 	g++ intbst.cpp -c

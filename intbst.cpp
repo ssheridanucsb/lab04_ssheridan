@@ -243,12 +243,14 @@ bool IntBST::remove(int value){
 
 IntBST::Node* IntBST::remove(int value, Node* p){
   Node* n = getNodeFor(value, p);
-  if(!n->left && !n->right){
-    if(n->parent->left==n){
-      n->parent->left = 0;
+  if(n==0) return 0;
+
+  if(n->left==0 && n->right==0){
+    if(n->parent->right==n){
+      n->parent->right=0;
     }
     else{
-      n->parent->right = 0;
+      n->parent->left=0;
     }
     delete n;
     return 0;
