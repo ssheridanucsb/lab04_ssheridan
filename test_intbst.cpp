@@ -74,10 +74,10 @@ int main(){
   cout << endl;
 
   //remove a node with two children
-  //cout << "Removing a node with two children i.e 9" << endl;
-  //testTree.remove(9);
-  //testTree.printPreOrder();
-  //cout<<endl;
+  cout << "Removing a node with two children i.e 9" << endl;
+  testTree.remove(9);
+  testTree.printPreOrder();
+  cout<<endl;
 
 
 

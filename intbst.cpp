@@ -230,6 +230,10 @@ int IntBST::getSuccessor(int value) const{
 // returns true if the node exist and was deleted or false if the node does not exist
 bool IntBST::remove(int value){
     if(!contains(value)) return false;
+    if(root->info==value && root->right==0 && root->left==0){
+      delete root;
+      root=0;
+    }
     remove(value, root);
     return true;
 }
@@ -274,7 +278,7 @@ IntBST::Node* IntBST::remove(int value, Node* p){
         }
       }
 
-  
+
     delete n;
     return 0;
   }
