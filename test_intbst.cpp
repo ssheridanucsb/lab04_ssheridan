@@ -79,6 +79,14 @@ int main(){
   testTree.printPreOrder();
   cout<<endl;
 
+  //one element test
+  cout << "remving a node from a one element tree" << endl;
+  IntBST testOne;
+  testOne.insert(1);
+  testOne.remove(1);
+  testOne.printPreOrder();
+  cout << endl;
+
 
 
 
